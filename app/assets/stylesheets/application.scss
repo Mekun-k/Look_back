@@ -13,3 +13,21 @@
  *= require_tree .
  *= require_self
  */
+
+@import "bootstrap/scss/bootstrap";
+
+// max-width
+
+.mw-md {
+  max-width: 576px;
+}
+
+// 「ログインしました」などのフラッシュ用スタイル
+
+.alert-notice {
+  @extend .alert-info;
+}
+
+.alert-alert {
+  @extend .alert-danger;
+}

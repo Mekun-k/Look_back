@@ -4,27 +4,20 @@
     <title>DeviseRails6</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <header>
-      <nav>
-          <% if user_signed_in? %>
-            <strong><%= link_to current_user.name, pages_show_path %></strong>
-            <%= link_to 'プロフィール変更', edit_user_registration_path %>
-            <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
-          <% else %>
-            <%= link_to 'サインアップ', new_user_registration_path %>
-            <%= link_to 'ログイン', new_user_session_path %>
-          <% end %>
-      </nav>
-    </header>
+
+
     <!-- ここに追加 -->
 
-
-    <%= yield %>
+    <%= render 'layouts/header' %>
+    <div class="container-fluid py-4 mw-md">
+      <%= yield %>
+    </div>
   </body>
 </html>
