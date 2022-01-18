@@ -32,3 +32,5 @@ $(document).on ("turbolinks:load", function(){
 		$(this).attr('src', '/assets/line_cl.png');
 	  });
 });
+
+require("bootstrap/dist/js/bootstrap")

@@ -34,5 +34,8 @@ module Mekun
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+
+    # 以下を追加すれば日本語に
+    config.i18n.default_locale = :ja
   end
 end
