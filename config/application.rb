@@ -37,5 +37,6 @@ module Mekun
 
     # 以下を追加すれば日本語に
     config.i18n.default_locale = :ja
+    config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}').to_s]
   end
 end
