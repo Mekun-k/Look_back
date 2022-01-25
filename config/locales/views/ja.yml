@@ -4,6 +4,10 @@ ja:
     register: '登録'
     logout: 'ログアウト'
     account: 'アカウント'
+    message:
+      require_login: 'ログインしてください'
+      created: "%{item}を作成しました"
+      not_created: "%{item}を作成できませんでした"
   layouts:
     _header:
       top: 'トップページ'
@@ -21,3 +25,11 @@ ja:
       title: 'トップページ'
     show:
       title: 'ユーザーページ'
+
+  tasks:
+    index:
+      title: 'タスク一覧'
+      no_result: 'タスクがありません'
+    new:
+      title: 'タスク作成'
+

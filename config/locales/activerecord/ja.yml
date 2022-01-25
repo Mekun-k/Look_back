@@ -2,8 +2,16 @@ ja:
   activerecord:
     models:
       user: 'ユーザー'
+      task: 'タスク'
     attributes:
       user:
         email: 'メールアドレス'
         password: 'パスワード'
         password_confirmation: 'パスワード確認'
+      task:
+        name: '名前'
+        body: '備考'
+        task_url: '記事リンク'
+        start_date: '開始日'
+        doing_date: '復習日'
+        task_state: 'ステータス'

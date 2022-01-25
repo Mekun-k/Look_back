@@ -56,3 +56,5 @@ gem 'rails-i18n', '~> 6.0'
 
 # Bootstrap
 gem 'devise-bootstrap-views', '~> 1.0'
+
+gem 'font-awesome-sass'
