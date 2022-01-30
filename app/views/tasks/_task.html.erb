@@ -3,22 +3,18 @@
     <div class="card">
       <div class="card-body">
         <h4 class="card-name">
-          <a href="#">
-            <%= task.name %>
-          </a>
+          <%= task.name %>
         </h4>
-        <div class='mr10 float-right'>
-          <a href="#"><%= icon 'fas', 'trash', class: 'pr-1' %></a>
-          <a href="#"><%= icon 'fa', 'pen' %></a>
-        </div>
+
         <ul class="list-inline">
-          <li class="list-inline-item">
-            <%= icon 'far', 'user' %>
-            <%= current_user.tasks.name %>
-          </li>
           <li class="list-inline-item">
             <%= icon 'far', 'calendar' %>
             <%= l task.created_at, format: :long %>
+          </li>
+          <li class="list-inline-item">
+            <%= link_to task_path(task), method: :get do %>
+              <%= icon 'fas', 'info-circle' %>
+            <% end %>
           </li>
         </ul>
         <p class="card-text"><%= task.body %></p>

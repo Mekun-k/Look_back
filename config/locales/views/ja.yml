@@ -8,6 +8,10 @@ ja:
       require_login: 'ログインしてください'
       created: "%{item}を作成しました"
       not_created: "%{item}を作成できませんでした"
+      updated: "%{item}を更新しました"
+      not_updated: "%{item}を更新できませんでした"
+      deleted: "%{item}を削除しました"
+      delete_confirm: "タスクを削除してもよろしいでしょうか？      "
   layouts:
     _header:
       top: 'トップページ'
@@ -31,5 +35,8 @@ ja:
       title: 'タスク一覧'
       no_result: 'タスクがありません'
     new:
-      title: 'タスク作成'
-
+      title: '作成'
+    edit:
+      title: '編集'
+    show:
+      title: '詳細'

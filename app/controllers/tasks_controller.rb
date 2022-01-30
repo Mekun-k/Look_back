@@ -24,12 +24,23 @@ class TasksController < ApplicationController
   end
 
   def edit
+    @task = current_user.tasks.find(params[:id])
   end
 
   def update
+    @task = current_user.tasks.find(params[:id])
+    if @task.update(task_params)
+      redirect_to task_path(@task), success: t('defaults.message.updated', item: Task.model_name.human)
+    else
+      flash.now['danger'] = t('defaults.message.not_updated', item: Task.model_name.human)
+      render :edit
+    end
   end
 
   def destroy
+    @task = current_user.tasks.find(params[:id])
+    @task.destroy!
+    redirect_to tasks_path, success: t('defaults.message.deleted', item: Task.model_name.human)
   end
 
   private

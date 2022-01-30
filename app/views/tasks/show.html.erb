@@ -1,4 +1,4 @@
-<% content_for(:title, @task.name) %>
+
 <div class="container pt-5">
   <div class="row mb-3">
     <div class="col-lg-8 offset-lg-2">
@@ -7,26 +7,46 @@
       <article class="card">
         <div class="card-body">
           <div class='row'>
-            <div class='col-md-3'>
-            </div>
-            <div class='col-md-9'>
+            <div class='col'>
               <h3 class="d-inline"><%= @task.name %></h3>
-              <%= render 'crud_menus', task: @task %>
-              <ul class="list-inline">
-                <li class="list-inline-item">by <%= @task.user.decorate.full_name %></li>
-                <li class="list-inline-item"><%= l @task.created_at, format: :long  %></li>
-              </ul>
+                <div class="container">
+                    <ul class="list-group">
+
+                        <ul class="list-group list-group-horizontal">
+                            <li class="list-group-item border-right-0">
+                                タスク名
+                            </li>
+                            <li class="list-group-item border-left-0">
+                                <%= @task.name %>
+                            </li>
+                        </ul>
+
+                    <li class="list-group-item">
+                        <%= @task.body %>
+                    </li>
+
+                    <li class="list-group-item">
+                        <%= @task.task_url %>
+                    </li>
+
+                    <li class="list-group-item">
+                        <%= @task.task_state %>
+                    </li>
+
+                    <li class="list-group-item">
+                        <%= l @task.created_at, format: :long  %>
+                    </li>
+
+                    <li class="list-group-item">
+                        <%= l @task.doing_date, format: :long  %>
+                    </li>
+                </ul>
+              </div>
+
             </div>
           </div>
-          <p><%= simple_format(@task.body) %></p>
         </div>
       </article>
     </div>
   </div>
-
-  <!-- コメントフォーム -->
-  <%= render 'comments/form', { task: @task, comment: @comment } %>
-
-  <!-- コメントエリア -->
-  <%= render 'comments/comments', { comments: @comments } %>
 </div>
