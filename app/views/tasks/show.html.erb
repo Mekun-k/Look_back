@@ -1,52 +1,57 @@
-
-<div class="container pt-5">
-  <div class="row mb-3">
-    <div class="col-lg-8 offset-lg-2">
-      <h1><%= t('.title') %></h1>
-      <!-- 掲示板内容 -->
-      <article class="card">
-        <div class="card-body">
-          <div class='row'>
-            <div class='col'>
-              <h3 class="d-inline"><%= @task.name %></h3>
-                <div class="container">
-                    <ul class="list-group">
-
-                        <ul class="list-group list-group-horizontal">
-                            <li class="list-group-item border-right-0">
-                                タスク名
-                            </li>
-                            <li class="list-group-item border-left-0">
-                                <%= @task.name %>
-                            </li>
-                        </ul>
-
-                    <li class="list-group-item">
-                        <%= @task.body %>
-                    </li>
-
-                    <li class="list-group-item">
-                        <%= @task.task_url %>
-                    </li>
-
-                    <li class="list-group-item">
-                        <%= @task.task_state %>
-                    </li>
-
-                    <li class="list-group-item">
-                        <%= l @task.created_at, format: :long  %>
-                    </li>
-
-                    <li class="list-group-item">
-                        <%= l @task.doing_date, format: :long  %>
-                    </li>
-                </ul>
+ <div class="container">
+   <div class="row">
+     <div class="col-lg">
+      <div class="form-control">
+       <h1 class="text-center"><%= t('.title') %></h1>
+        <table class="table">
+          <tbody>
+            <tr>
+              <div class="my-3">
+                <th scope="row"><%= Task.human_attribute_name("name") %></th>
+                <td><%= @task.name %></td>
               </div>
+            </tr>
 
-            </div>
-          </div>
-        </div>
-      </article>
-    </div>
-  </div>
-</div>
+            <tr>
+              <th scope="row"><%= Task.human_attribute_name("body") %></th>
+              <td><%= @task.body %></td>
+            </tr>
+
+            <tr>
+              <th scope="row"><%= Task.human_attribute_name("task_url") %></th>
+              <td><%= @task.task_url %></td>
+            </tr>
+
+            <tr>
+              <th scope="row"><%= Task.human_attribute_name("task_state") %></th>
+              <td><%= @task.task_state %></td>
+            </tr>
+
+            <tr>
+              <th scope="row"><%= Task.human_attribute_name("created_at") %></th>
+              <td><%= @task.created_at %></td>
+            </tr>
+
+            <tr>
+              <th scope="row"><%= Task.human_attribute_name("doing_date") %></th>
+              <td><%= @task.doing_date %></td>
+            </tr>
+
+            <%# ここから下は未実装 %>
+            <tr>
+              <th scope="row">周期</th>
+              <td></td>
+            </tr>
+
+            <tr>
+              <th scope="row">繰り返し</th>
+              <td></td>
+            </tr>
+            <%# ここから上は未実装 %>
+
+          </tbody>
+        </table>
+      </div>
+     </div>
+   </div>
+ </div>

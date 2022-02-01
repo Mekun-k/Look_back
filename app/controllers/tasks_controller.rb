@@ -1,5 +1,5 @@
 class TasksController < ApplicationController
-  before_action :authenticate_user!, only: %i[show new create edit update destroy]
+  before_action :authenticate_user!, except: %i[show, index]
 
   def index
     @tasks = Task.all.includes(:user).order(created_at: :desc)

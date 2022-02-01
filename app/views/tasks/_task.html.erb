@@ -8,8 +8,10 @@
 
         <ul class="list-inline">
           <li class="list-inline-item">
-            <%= icon 'far', 'calendar' %>
-            <%= l task.created_at, format: :long %>
+              <%= task.body %>
+          </li>
+          <li class="list-inline-item">
+              <%= task.task_url %>
           </li>
           <li class="list-inline-item">
             <%= link_to task_path(task), method: :get do %>
@@ -17,7 +19,6 @@
             <% end %>
           </li>
         </ul>
-        <p class="card-text"><%= task.body %></p>
       </div>
     </div>
   </div>

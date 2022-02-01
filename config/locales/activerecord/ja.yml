@@ -9,9 +9,10 @@ ja:
         password: 'パスワード'
         password_confirmation: 'パスワード確認'
       task:
-        name: '名前'
+        name: 'タスク名'
         body: '備考'
-        task_url: '記事リンク'
+        task_url: 'URL'
         start_date: '開始日'
         doing_date: '復習日'
         task_state: 'ステータス'
+        created_at: '作成日'
