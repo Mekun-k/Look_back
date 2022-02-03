@@ -1,4 +1,5 @@
 <%= form_with model: task, local: true do |f| %>
+    <%= render 'devise/shared/error_messages', object: f.object %>
 
     <div class= form-group >
         <div class="m-3">
@@ -48,12 +49,10 @@
         </div>
     </div>
 
-
     <div class="text-center">
       <div class="m-3">
         <%= link_to '戻る', :back, class: 'btn btn-primary' %>
       </div>
     </div>
-
 
 <% end %>
