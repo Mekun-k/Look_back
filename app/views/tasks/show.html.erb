@@ -51,6 +51,14 @@
 
           </tbody>
         </table>
+        <div class="text-center">
+          <%= render 'crud_menus', { task: @task } %>
+        </div>
+      </div>
+      <div class="text-center">
+        <div class="m-3">
+          <%= link_to '戻る', :back, class: 'btn btn-primary' %>
+        </div>
       </div>
      </div>
    </div>
