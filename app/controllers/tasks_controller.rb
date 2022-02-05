@@ -39,8 +39,12 @@ class TasksController < ApplicationController
 
   def destroy
     @task = current_user.tasks.find(params[:id])
-    @task.destroy!
-    redirect_to tasks_path, success: t('defaults.message.deleted', item: Task.model_name.human)
+    if @task.destroy
+      redirect_to tasks_path, success: t('defaults.message.deleted', item: Task.model_name.human)
+    else
+      flash.now['danger'] = t('defaults.message.not_deleted', item: Task.model_name.human)
+      render :show
+    end
   end
 
   private

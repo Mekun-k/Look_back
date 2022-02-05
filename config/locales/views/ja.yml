@@ -13,7 +13,8 @@ ja:
       updated: "%{item}を更新しました"
       not_updated: "%{item}を更新できませんでした"
       deleted: "%{item}を削除しました"
-      delete_confirm: "タスクを削除してもよろしいでしょうか？      "
+      not_deleted: "削除に失敗しました"
+      delete_confirm: "タスクを削除してもよろしいでしょうか？"
   layouts:
     _header:
       top: 'トップページ'
