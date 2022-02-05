@@ -47,6 +47,10 @@ class TasksController < ApplicationController
     end
   end
 
+  def today
+    @tasks = Task.doing_today.includes(:user).order(created_at: :desc)
+  end
+
   private
 
   def task_params
