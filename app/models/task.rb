@@ -8,5 +8,6 @@ class Task < ApplicationRecord
     validates :start_date, presence: true
     validates :doing_date, presence: true
 
-
+    enum task_state: %i[waiting doing done]
+    # 待機中、進行中、完了
 end

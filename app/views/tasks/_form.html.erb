@@ -25,7 +25,7 @@
     <div class= form-group >
         <div class="m-3">
             <%= f.label :task_state %>
-            <%= f.number_field :task_state, class: 'form-control' %>
+            <%= f.select :task_state, Task.task_states_i18n.invert, {}, class: 'form-control' %>
         </div>
     </div>
 

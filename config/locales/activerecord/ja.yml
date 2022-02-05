@@ -16,3 +16,10 @@ ja:
         doing_date: '復習日'
         task_state: 'ステータス'
         created_at: '作成日'
+  ja:
+  enums:
+    task:
+      task_state:
+        waiting: '待機中'
+        doing: '進行中'
+        done: '完了'
