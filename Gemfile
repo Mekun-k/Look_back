@@ -53,6 +53,7 @@ gem 'omniauth-line'
 gem 'omniauth-rails_csrf_protection'
 # 日本語化
 gem 'rails-i18n', '~> 6.0'
+gem 'devise-i18n'
 
 # Bootstrap
 gem 'devise-bootstrap-views', '~> 1.0'
