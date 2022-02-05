@@ -4,6 +4,17 @@ ja:
     register: '登録'
     logout: 'ログアウト'
     account: 'アカウント'
+    message:
+      login: 'ログインしました'
+      signed_out: 'ログアウトしました'
+      require_login: 'ログインしてください'
+      created: "%{item}を作成しました"
+      not_created: "%{item}を作成できませんでした"
+      updated: "%{item}を更新しました"
+      not_updated: "%{item}を更新できませんでした"
+      deleted: "%{item}を削除しました"
+      not_deleted: "削除に失敗しました"
+      delete_confirm: "タスクを削除してもよろしいでしょうか？"
   layouts:
     _header:
       top: 'トップページ'
@@ -13,7 +24,7 @@ ja:
       to_login_page: 'ログインページへ'
   user_sessions:
     new:
-      title: 'ログイン'
+      title: 'ログインページ'
       to_register_page: '登録ページへ'
       password_forget: 'パスワードをお忘れの方はこちら'
   pages:
@@ -21,3 +32,17 @@ ja:
       title: 'トップページ'
     show:
       title: 'ユーザーページ'
+
+  tasks:
+    index:
+      title: 'タスク一覧'
+      no_result: 'タスクがありません'
+    today:
+      title: '今日'
+      no_result: '今日行うタスクがありません'
+    new:
+      title: '作成'
+    edit:
+      title: '編集'
+    show:
+      title: '詳細'

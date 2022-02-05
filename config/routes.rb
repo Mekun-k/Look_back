@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  resources :tasks do
+    collection do
+      get 'today'
+    end
+  end
   devise_for :users, controllers: {
     omniauth_callbacks: "omniauth_callbacks"
 }

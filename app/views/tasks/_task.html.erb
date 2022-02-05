@@ -1,0 +1,25 @@
+<div class="col-sm-12 col-lg-4 mb-3">
+  <div id="task-id-<%= task.id %>">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-name">
+          <%= task.name %>
+        </h4>
+
+        <ul class="list-inline">
+          <li class="list-inline-item">
+              <%= task.body %>
+          </li>
+          <li class="list-inline-item">
+              <%= task.task_url %>
+          </li>
+          <li class="list-inline-item">
+            <%= link_to task_path(task), method: :get do %>
+              <%= icon 'fas', 'info-circle' %>
+            <% end %>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

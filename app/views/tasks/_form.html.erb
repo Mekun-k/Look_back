@@ -1,0 +1,58 @@
+<%= form_with model: task, local: true do |f| %>
+    <%= render 'devise/shared/error_messages', object: f.object %>
+
+    <div class= form-group >
+        <div class="m-3">
+            <%= f.label :name %>
+            <%= f.text_field :name, class: 'form-control' %>
+        </div>
+    </div>
+
+    <div class= form-group >
+        <div class="m-3">
+            <%= f.label :body %>
+            <%= f.text_field :body, class: 'form-control' %>
+        </div>
+    </div>
+
+    <div class= form-group >
+        <div class="m-3">
+            <%= f.label :task_url %>
+            <%= f.text_field :task_url, class: 'form-control' %>
+        </div>
+    </div>
+
+    <div class= form-group >
+        <div class="m-3">
+            <%= f.label :task_state %>
+            <%= f.select :task_state, Task.task_states_i18n.invert, {}, class: 'form-control' %>
+        </div>
+    </div>
+
+    <div class= form-group >
+        <div class="m-3">
+            <%= f.label :start_date %>
+            <%= f.date_field :start_date, class: 'form-control' %>
+        </div>
+    </div>
+
+    <div class= form-group >
+        <div class="m-3">
+            <%= f.label :doing_date %>
+            <%= f.date_field :doing_date, class: 'form-control' %>
+        </div>
+    </div>
+
+    <div class="text-center">
+        <div class="m-3">
+            <%= f.submit nil, class: 'btn btn-primary' %>
+        </div>
+    </div>
+
+    <div class="text-center">
+      <div class="m-3">
+        <%= link_to '戻る', :back, class: 'btn btn-primary' %>
+      </div>
+    </div>
+
+<% end %>

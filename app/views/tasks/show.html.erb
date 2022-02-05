@@ -1,0 +1,65 @@
+ <div class="container">
+   <div class="row">
+     <div class="col-lg">
+      <div class="form-control">
+       <h1 class="text-center"><%= t('.title') %></h1>
+        <table class="table">
+          <tbody>
+            <tr>
+              <div class="my-3">
+                <th scope="row"><%= Task.human_attribute_name("name") %></th>
+                <td><%= @task.name %></td>
+              </div>
+            </tr>
+
+            <tr>
+              <th scope="row"><%= Task.human_attribute_name("body") %></th>
+              <td><%= @task.body %></td>
+            </tr>
+
+            <tr>
+              <th scope="row"><%= Task.human_attribute_name("task_url") %></th>
+              <td><%= @task.task_url %></td>
+            </tr>
+
+            <tr>
+              <th scope="row"><%= Task.human_attribute_name("task_state") %></th>
+              <td><%= @task.task_state_i18n %></td>
+            </tr>
+
+            <tr>
+              <th scope="row"><%= Task.human_attribute_name("created_at") %></th>
+              <td><%= @task.created_at %></td>
+            </tr>
+
+            <tr>
+              <th scope="row"><%= Task.human_attribute_name("doing_date") %></th>
+              <td><%= @task.doing_date %></td>
+            </tr>
+
+            <%# ここから下は未実装 %>
+            <tr>
+              <th scope="row">周期</th>
+              <td></td>
+            </tr>
+
+            <tr>
+              <th scope="row">繰り返し</th>
+              <td></td>
+            </tr>
+            <%# ここから上は未実装 %>
+
+          </tbody>
+        </table>
+        <div class="text-center">
+          <%= render 'crud_menus', { task: @task } %>
+        </div>
+      </div>
+      <div class="text-center">
+        <div class="m-3">
+          <%= link_to '戻る', :back, class: 'btn btn-primary' %>
+        </div>
+      </div>
+     </div>
+   </div>
+ </div>

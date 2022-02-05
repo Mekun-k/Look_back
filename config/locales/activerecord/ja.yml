@@ -2,8 +2,24 @@ ja:
   activerecord:
     models:
       user: 'ユーザー'
+      task: 'タスク'
     attributes:
       user:
         email: 'メールアドレス'
         password: 'パスワード'
         password_confirmation: 'パスワード確認'
+      task:
+        name: 'タスク名'
+        body: '備考'
+        task_url: 'URL'
+        start_date: '開始日'
+        doing_date: '復習日'
+        task_state: 'ステータス'
+        created_at: '作成日'
+  ja:
+  enums:
+    task:
+      task_state:
+        waiting: '待機中'
+        doing: '進行中'
+        done: '完了'
