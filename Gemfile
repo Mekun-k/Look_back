@@ -56,6 +56,9 @@ gem 'rails-i18n', '~> 6.0'
 gem 'devise-i18n'
 gem 'enum_help'
 
+# Qiita api
+gem 'httpclient'
+
 # Bootstrap
 gem 'devise-bootstrap-views', '~> 1.0'
 
