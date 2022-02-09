@@ -4,7 +4,6 @@ class CreateTasks < ActiveRecord::Migration[6.1]
       t.references :user, foreign_key: true
       t.string :name, null: false
       t.text :body
-      t.text :task_url, null: false
       t.date :start_date, null: false
       t.date :doing_date, null: false
       t.integer :task_state, null: false, default: 0

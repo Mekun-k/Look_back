@@ -3,7 +3,6 @@ class Task < ApplicationRecord
 
     validates :name, presence: true, length: { maximum: 30 }
     validates :body, length: { maximum: 50 }
-    validates :task_url, presence: true, length: { maximum: 100 }
     validates :task_state, presence: true
     validates :start_date, presence: true
     validates :doing_date, presence: true

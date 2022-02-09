@@ -19,7 +19,6 @@ ActiveRecord::Schema.define(version: 2022_01_18_125041) do
     t.bigint "user_id"
     t.string "name", null: false
     t.text "body"
-    t.text "task_url", null: false
     t.date "start_date", null: false
     t.date "doing_date", null: false
     t.integer "task_state", default: 0, null: false
