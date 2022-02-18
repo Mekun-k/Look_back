@@ -1,5 +1,6 @@
 class Task < ApplicationRecord
     belongs_to :user
+    has_one :article
 
     validates :name, presence: true, length: { maximum: 30 }
     validates :body, length: { maximum: 50 }

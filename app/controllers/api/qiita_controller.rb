@@ -8,4 +8,4 @@ class Api::QiitaController < ApplicationController
     response = client.get(url)              # Getリクエスト
     render json: JSON.parse(response.body)  # 結果をjsonにパースして表示
   end
-endgit
+end
