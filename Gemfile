@@ -63,3 +63,5 @@ gem 'httpclient'
 gem 'devise-bootstrap-views', '~> 1.0'
 
 gem 'font-awesome-sass'
+
+gem 'bootstrap_form'

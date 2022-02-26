@@ -13,7 +13,7 @@ Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
 require("jquery")
-require('test.js')
+require('qiita.js')
 
 
 var jQuery = require('jquery')

@@ -1,61 +1,56 @@
-<%= form_with model: task, local: true do |f| %>
+<%= bootstrap_form_with model: task, local: true do |f| %>
     <%= render 'devise/shared/error_messages', object: f.object %>
 
     <div class= form-group >
         <div class="m-3">
-            <%= f.label "記事取得" %>
-            <div id="select-perent">
-              <%= f.select :'select-perent', {'Qiita記事一覧': 1, 'Qiitaストック一覧': 2},
-              { include_blank: '選択してください'}, class: 'form-control' %>
+             <div id = "select-perent">
+                <%= f.select :'select-perent', {'Qiita記事一覧': 1, 'Qiitaストック一覧': 2},
+                { include_blank: '選択してください'}  %>
             </div>
         </div>
     </div>
 
     <div class= form-group >
         <div class="m-3">
-            <%= f.select :'select-children', class: 'form-control' %>
+            <div id = "select-children">
+                <%= f.select :'select-children', {'': 1}%>
+            </div>
         </div>
     </div>
 
     <div class= form-group >
         <div class="m-3">
-            <%= f.label :name %>
-            <%= f.text_field :name, class: 'form-control' %>
+            <%= f.text_field :name %>
         </div>
     </div>
 
     <div class= form-group >
         <div class="m-3">
-            <%= f.label :body %>
-            <%= f.text_field :body, class: 'form-control' %>
+            <%= f.text_field :body %>
         </div>
     </div>
 
     <div class= form-group >
         <div class="m-3">
             <%= f.label :リンク %>
-
         </div>
     </div>
 
     <div class= form-group >
         <div class="m-3">
-            <%= f.label :task_state %>
-            <%= f.select :task_state, Task.task_states_i18n.invert, {}, class: 'form-control' %>
+            <%= f.select :task_state, Task.task_states_i18n.invert, {} %>
         </div>
     </div>
 
     <div class= form-group >
         <div class="m-3">
-            <%= f.label :start_date %>
-            <%= f.date_field :start_date, class: 'form-control' %>
+            <%= f.date_field :start_date %>
         </div>
     </div>
 
     <div class= form-group >
         <div class="m-3">
-            <%= f.label :doing_date %>
-            <%= f.date_field :doing_date, class: 'form-control' %>
+            <%= f.date_field :doing_date %>
         </div>
     </div>
 

@@ -16,6 +16,8 @@ ja:
         doing_date: '復習日'
         task_state: 'ステータス'
         created_at: '作成日'
+        select-children: '記事選択'
+        select-perent: '記事取得'
   ja:
   enums:
     task:
