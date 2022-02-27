@@ -14,31 +14,13 @@ $(document).on ("turbolinks:load", function(){
                 async: false // 非同期通信フラグ
             }).then(
                 function (items_data) {
-                    $('#task_select-children').children('option').remove();
                     $('#task_qiita_id').children('option').remove();
                     // 最初のoption要素削除
                     $.each(items_data, function(key, value) {
-                        $('#task_select-children').append("<option value='" + key + "'>" + value.title + "</option>");
-                        // タイトルを出力
-                    });
-
-                    $('#task_select-children').change(function(){
-                        // 二つ目のセレクトボックスを変更したとき
-
-                        var text = $('[name="task[select-children]"] option:selected').val();
-                        // 選択した記事のvalueを取得
-
-                        var choice = $(items_data[text]);
-                        // valueから記事のデータ取得
-
-                        $('#task_qiita_id').children('option').remove();
-                        // 最初のoption要素削除
-
-                        $.each(choice, function(key, value) {
-                        // idを取得するためにeachメソッド使用
-                              $('#task_qiita_id').append("<option value='" + value.id + "'>" + value.id + "</option>");
-                               // optionに記事idを表示
-                        });
+                        // console.log(key + ':' + value.title + ':' + value.url);
+                        // デバッグ用
+                        $('#task_qiita_id').append("<option value='" + value.id + "'>" + value.title + "</option>");
+                        // タイトルを出力、記事IDをvalueに設定
                     });
                 },
                 function () {
@@ -57,34 +39,12 @@ $(document).on ("turbolinks:load", function(){
                 async: false // 非同期通信フラグ
             }).then(
                 function (stocks_data) {
-                    $('#task_select-children').children('option').remove();
                     $('#task_qiita_id').children('option').remove();
-
                     // 最初のoption要素削除
                     $.each(stocks_data, function(key, value) {
                         // console.log(key + ':' + value.title + ':' + value.url);
-                        // デバッグ用
-                        $('#task_select-children').append("<option value='" + key + "'>" + value.title + "</option>");
-                        // タイトルを出力
-                    });
-
-                    $('#task_select-children').change(function(){
-                        // 二つ目のセレクトボックスを変更したとき
-
-                        var text = $('[name="task[select-children]"] option:selected').val();
-                        // 選択した記事のvalueを取得
-
-                        var choice = $(stocks_data[text]);
-                        // valueから記事のデータ取得
-
-                        $('#task_qiita_id').children('option').remove();
-                        // 最初のoption要素削除
-
-                        $.each(choice, function(key, value) {
-                        // idを取得するためにeachメソッド使用
-                              $('#task_qiita_id').append("<option value='" + value.id + "'>" + value.id + "</option>");
-                               // optionに記事idを表示
-                        });
+                        $('#task_qiita_id').append("<option value='" + value.id + "'>" + value.title + "</option>");
+                        // タイトルを出力、記事IDをvalueに設定
                     });
                 },
                 function () {
@@ -95,10 +55,8 @@ $(document).on ("turbolinks:load", function(){
 
         } else {
         // 「選択してください」がクリックされた時の処理
-
-            $('#task_select-children').children('option').remove();
             $('#task_qiita_id').children('option').remove();
-            // 記事選択、Qiitaのoptionリセット
+            // Qiitaのoptionリセット
         }
     });
 });
