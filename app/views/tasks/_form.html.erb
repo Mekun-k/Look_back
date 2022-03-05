@@ -1,4 +1,4 @@
-<%= bootstrap_form_with(model: @form, url: tasks_path, local: true) do |form| %>
+<%= bootstrap_form_with model: form, local: true do |form| %>
     <%= render 'devise/shared/error_messages', object: form.object %>
 
     <div class= form-group >
