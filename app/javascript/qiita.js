@@ -1,7 +1,7 @@
 import { end } from "@popperjs/core";
 
 $(document).on ("turbolinks:load", function(){
-    $('#task_select-perent').change(function(){
+    $('#task_article_choice').change(function(){
         var text = $('option:selected').val();
         if (text == 1){
         // Qiitaユーザー記事がクリックされた時の処理

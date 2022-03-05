@@ -10,12 +10,15 @@ class TasksController < ApplicationController
   end
 
   def new
-    @task = Task.new
+    @form = TaskForm.new
+
   end
 
   def create
-    @task = current_user.tasks.build(task_params)
-    if @task.save
+    @form = TaskForm.new(task_params)
+
+    if @form.valid?
+      @form.save
       redirect_to tasks_path, success: t('defaults.message.created', item: Task.model_name.human)
     else
       flash.now['danger'] = t('defaults.message.not_created', item: Task.model_name.human)
@@ -24,11 +27,11 @@ class TasksController < ApplicationController
   end
 
   def edit
-    @task = current_user.tasks.find(params[:id])
+    load_task
   end
 
   def update
-    @task = current_user.tasks.find(params[:id])
+    load_task
     if @task.update(task_params)
       redirect_to task_path(@task), success: t('defaults.message.updated', item: Task.model_name.human)
     else
@@ -38,7 +41,7 @@ class TasksController < ApplicationController
   end
 
   def destroy
-    @task = current_user.tasks.find(params[:id])
+    load_task
     if @task.destroy
       redirect_to tasks_path, success: t('defaults.message.deleted', item: Task.model_name.human)
     else
@@ -54,6 +57,10 @@ class TasksController < ApplicationController
   private
 
   def task_params
-    params.require(:task).permit(:name, :body, :start_date, :doing_date, :task_state)
+    params.require(:task).permit(:name, :body, :start_date, :doing_date, :task_state, :qiita_id, :article_choice)
+  end
+
+  def load_task
+    @task = current_user.tasks.find(params[:id])
   end
 end

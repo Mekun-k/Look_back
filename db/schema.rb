@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 2022_02_09_114804) do
   create_table "tasks", force: :cascade do |t|
     t.bigint "user_id"
     t.string "name", null: false
-    t.text "body"
+    t.string "body"
     t.date "start_date", null: false
     t.date "doing_date", null: false
     t.integer "task_state", default: 0, null: false

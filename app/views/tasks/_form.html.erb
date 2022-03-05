@@ -1,10 +1,10 @@
-<%= bootstrap_form_with model: task, local: true do |f| %>
-    <%= render 'devise/shared/error_messages', object: f.object %>
+<%= bootstrap_form_with(model: @form, url: tasks_path, local: true) do |form| %>
+    <%= render 'devise/shared/error_messages', object: form.object %>
 
     <div class= form-group >
         <div class="m-3">
              <div id = "select-perent">
-                <%= f.select :'select-perent', {'Qiitaユーザー記事': 1, 'Qiitaストック記事': 2},
+                <%= form.select :'article_choice', {'Qiitaユーザー記事': 1, 'Qiitaストック記事': 2},
                 { include_blank: '選択してください'} %>
             </div>
         </div>
@@ -13,44 +13,44 @@
     <div class= form-group >
         <div class="m-3">
             <div id = "select-children">
-                <%= f.select :qiita_id, {'': 1}%>
+                <%= form.select :qiita_id, {'': 1}%>
             </div>
         </div>
     </div>
 
     <div class= form-group >
         <div class="m-3">
-            <%= f.text_field :name %>
+            <%= form.text_field :name %>
         </div>
     </div>
 
     <div class= form-group >
         <div class="m-3">
-            <%= f.text_field :body %>
+            <%= form.text_field :body %>
         </div>
     </div>
 
     <div class= form-group >
         <div class="m-3">
-            <%= f.select :task_state, Task.task_states_i18n.invert, {} %>
+            <%= form.select :task_state, Task.task_states_i18n.invert, {} %>
         </div>
     </div>
 
     <div class= form-group >
         <div class="m-3">
-            <%= f.date_field :start_date %>
+            <%= form.date_field :start_date %>
         </div>
     </div>
 
     <div class= form-group >
         <div class="m-3">
-            <%= f.date_field :doing_date %>
+            <%= form.date_field :doing_date %>
         </div>
     </div>
 
     <div class="text-center">
         <div class="m-3">
-            <%= f.submit nil, class: 'btn btn-primary' %>
+            <%= form.submit nil, class: 'btn btn-primary' %>
         </div>
     </div>
 
