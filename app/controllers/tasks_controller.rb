@@ -16,7 +16,8 @@ class TasksController < ApplicationController
 
   def create
     @form = TaskForm.new(task_params)
-
+    @form.user_id = current_user.id
+# binding.irb
     if @form.valid?
       @form.save
       redirect_to tasks_path, success: t('defaults.message.created', item: Task.model_name.human)

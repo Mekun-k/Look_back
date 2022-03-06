@@ -10,27 +10,27 @@ class TaskForm
     validates :task_state
     validates :start_date
     validates :doing_date
-    validates :qiita_id
+    # validates :qiita_id
   end
 
   delegate :persisted?, to: :task
 
-  def initialize(attributes = nil, task: Task.new)
+  def initialize(attributes = nil, task: Task.new, article: Article.new)
     @task = task
+    @article = article
     attributes ||= default_attributes
     super(attributes)
   end
 
   def save
-    return if invalid?
+    # return if invalid?
+
       fix_doing_date = Date.parse(@doing_date)
       fix_start_date = Date.parse(@start_date)
-      @name.class
-      binding.irb
-      @task.save(
-        user_id: user_id, name: name, body: body, task_state: task_state,
-        doing_date: fix_doing_date, start_date: fix_start_date
-      )
+
+      task.update!(user_id: user_id, name: name, body: body, task_state: task_state,doing_date: fix_doing_date, start_date: fix_start_date)
+      article.update!(task_id: task.id, qiita_id: qiita_id)
+
   end
 
   def to_model
@@ -39,7 +39,7 @@ class TaskForm
 
   private
 
-  attr_reader :task, :article
+  attr_reader :task, :article, :user
 
   def default_attributes
     {
@@ -49,7 +49,7 @@ class TaskForm
       doing_date: task.doing_date,
       start_date: task.start_date,
       qiita_id: task.article&.qiita_id,
-      # user_id: user.session[:user_id]
+      # user_id: task.user.user_id
     }
   end
 end
