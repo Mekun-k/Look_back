@@ -8,6 +8,14 @@ class User < ApplicationRecord
   has_many :tasks, dependent: :destroy
 
 
+  def self.guest
+    find_or_create_by!(email: 'aaa@aaa.com') do |user| # find_or_create_by!でゲストユーザーが無ければ作成、あれば取り出します。
+      user.password = SecureRandom.urlsafe_base64
+      user.password_confirmation = user.password
+      user.name = 'サンプル'
+    end
+  end
+
   def social_profile(provider)
     social_profiles.select { |sp| sp.provider == provider.to_s }.first
   end

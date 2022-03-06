@@ -1,8 +1,15 @@
  <div class="container">
    <div class="row">
      <div class="text-center">
-      <h1><%= t('user_sessions.new.title') %></h1>
-      <%= render "devise/shared/links" %>
+      <div class="my-5">
+        <h1><%= t('user_sessions.new.title') %></h1>
+      </div>
+      <div class="my-5">
+        <%= render "devise/shared/links" %>
+      </div>
+      <div class="my-5">
+        <%= link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, method: :post, class: 'btn btn-primary' %>
+      </div>
      </div>
    </div>
  </div>
