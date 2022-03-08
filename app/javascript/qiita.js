@@ -17,8 +17,6 @@ $(document).on ("turbolinks:load", function(){
                     $('#task_qiita_id').children('option').remove();
                     // 最初のoption要素削除
                     $.each(items_data, function(key, value) {
-                        // console.log(key + ':' + value.title + ':' + value.url);
-                        // デバッグ用
                         $('#task_qiita_id').append("<option value='" + value.id + "'>" + value.title + "</option>");
                         // タイトルを出力、記事IDをvalueに設定
                     });
@@ -42,7 +40,6 @@ $(document).on ("turbolinks:load", function(){
                     $('#task_qiita_id').children('option').remove();
                     // 最初のoption要素削除
                     $.each(stocks_data, function(key, value) {
-                        // console.log(key + ':' + value.title + ':' + value.url);
                         $('#task_qiita_id').append("<option value='" + value.id + "'>" + value.title + "</option>");
                         // タイトルを出力、記事IDをvalueに設定
                     });

@@ -12,7 +12,7 @@ class User < ApplicationRecord
     find_or_create_by!(email: 'aaa@aaa.com') do |user| # find_or_create_by!でゲストユーザーが無ければ作成、あれば取り出します。
       user.password = SecureRandom.urlsafe_base64
       user.password_confirmation = user.password
-      user.name = 'サンプル'
+      user.name = 'ゲスト'
     end
   end
 
