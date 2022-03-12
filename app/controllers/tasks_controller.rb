@@ -1,5 +1,6 @@
 class TasksController < ApplicationController
   before_action :authenticate_user!, except: %i[show, index]
+  before_action :set_task, only: %i[ edit update destroy ]
 
   def index
     @tasks = Task.all.includes(:user).order(created_at: :desc)
@@ -11,7 +12,6 @@ class TasksController < ApplicationController
 
   def new
     @form = TaskForm.new
-
   end
 
   def create
@@ -28,13 +28,17 @@ class TasksController < ApplicationController
   end
 
   def edit
-    load_task
+    @form = TaskForm.new(task: @task)
   end
 
   def update
-    load_task
-    if @task.update(task_params)
-      redirect_to task_path(@task), success: t('defaults.message.updated', item: Task.model_name.human)
+    @article = @task.article
+    @form = TaskForm.new(task_params, task: @task, article: @article)
+    @form.user_id = current_user.id
+
+    if @form.valid?
+      @form.save
+      redirect_to @task, success: t('defaults.message.updated', item: Task.model_name.human)
     else
       flash.now['danger'] = t('defaults.message.not_updated', item: Task.model_name.human)
       render :edit
@@ -42,7 +46,6 @@ class TasksController < ApplicationController
   end
 
   def destroy
-    load_task
     if @task.destroy
       redirect_to tasks_path, success: t('defaults.message.deleted', item: Task.model_name.human)
     else
@@ -58,10 +61,10 @@ class TasksController < ApplicationController
   private
 
   def task_params
-    params.require(:task).permit(:name, :body, :start_date, :doing_date, :task_state, :qiita_id, :article_choice)
+    params.require(:task).permit(:name, :body, :start_date, :doing_date, :task_state, :qiita_id)
   end
 
-  def load_task
+  def set_task
     @task = current_user.tasks.find(params[:id])
   end
 end

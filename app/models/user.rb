@@ -7,6 +7,9 @@ class User < ApplicationRecord
 
   has_many :tasks, dependent: :destroy
 
+  def own?(object)
+    object.user_id == id
+  end
 
   def self.guest
     find_or_create_by!(email: 'aaa@aaa.com') do |user| # find_or_create_by!でゲストユーザーが無ければ作成、あれば取り出します。

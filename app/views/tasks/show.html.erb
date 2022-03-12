@@ -52,7 +52,7 @@
           </tbody>
         </table>
         <div class="text-center">
-          <%= render 'crud_menus', { task: @task } %>
+          <%= render 'crud_menus', { task: @task } if current_user.own?(@task)%>
         </div>
       </div>
       <div class="text-center">

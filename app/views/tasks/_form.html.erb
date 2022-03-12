@@ -13,7 +13,7 @@
     <div class= form-group >
         <div class="m-3">
             <div id = "select-children">
-                <%= form.select :qiita_id, {'': 1}%>
+                <%= form.select :qiita_id, { " ": " " }, include_blank: true %>
             </div>
         </div>
     </div>
@@ -38,13 +38,13 @@
 
     <div class= form-group >
         <div class="m-3">
-            <%= form.date_field :start_date %>
+            <%= form.date_select :start_date %>
         </div>
     </div>
 
     <div class= form-group >
         <div class="m-3">
-            <%= form.date_field :doing_date %>
+            <%= form.date_select :doing_date %>
         </div>
     </div>
 
