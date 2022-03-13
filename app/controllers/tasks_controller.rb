@@ -12,6 +12,8 @@ class TasksController < ApplicationController
 
   def new
     @form = TaskForm.new
+    @start_date = @form.start_date
+    @doing_date = @form.doing_date
   end
 
   def create
@@ -23,23 +25,28 @@ class TasksController < ApplicationController
       redirect_to tasks_path, success: t('defaults.message.created', item: Task.model_name.human)
     else
       flash.now['danger'] = t('defaults.message.not_created', item: Task.model_name.human)
+      @start_date = Date.new(@form.start_date[1].to_i, @form.start_date[2].to_i, @form.start_date[3].to_i)
+      @doing_date = Date.new(@form.doing_date[1].to_i, @form.doing_date[2].to_i, @form.doing_date[3].to_i)
       render :new
     end
   end
 
   def edit
     @form = TaskForm.new(task: @task)
+    @start_date = @form.start_date
+    @doing_date = @form.doing_date
   end
 
   def update
     @article = @task.article
     @form = TaskForm.new(task_params, task: @task, article: @article)
     @form.user_id = current_user.id
-
     if @form.valid?
       @form.save
       redirect_to @task, success: t('defaults.message.updated', item: Task.model_name.human)
     else
+      @start_date = Date.new(@form.start_date[1].to_i, @form.start_date[2].to_i, @form.start_date[3].to_i)
+      @doing_date = Date.new(@form.doing_date[1].to_i, @form.doing_date[2].to_i, @form.doing_date[3].to_i)
       flash.now['danger'] = t('defaults.message.not_updated', item: Task.model_name.human)
       render :edit
     end

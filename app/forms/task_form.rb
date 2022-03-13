@@ -24,9 +24,6 @@ class TaskForm
 
   def save
     return if invalid?
-
-      # fix_doing_date = Date.parse(@doing_date)
-      # fix_start_date = Date.parse(@start_date)
       task.update(user_id: user_id, name: name, body: body, task_state: task_state, doing_date: doing_date, start_date: start_date)
       article.update(task_id: task.id, qiita_id: qiita_id)
   end
