@@ -1,9 +1,12 @@
+<%= javascript_pack_tag "qiita_read.js" %>
 
 <div class="container">
   <div class="row">
     <div class="col-lg-8 offset-lg-2">
       <h1 class="text-center"><%= t('.title') %></h1>
       <%= render 'form', { form: @form } %>
+      <input type="hidden" id="qiita" value="<%= @qiita_id %>" >
+      <input type="hidden" id="choice" value="<%= @choice %>" >
     </div>
   </div>
 </div>

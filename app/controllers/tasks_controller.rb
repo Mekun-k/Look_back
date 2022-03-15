@@ -35,6 +35,8 @@ class TasksController < ApplicationController
     @form = TaskForm.new(task: @task)
     @start_date = @form.start_date
     @doing_date = @form.doing_date
+    @qiita_id = @form.qiita_id
+    @choice = @form.choice
   end
 
   def update
@@ -45,6 +47,8 @@ class TasksController < ApplicationController
       @form.save
       redirect_to @task, success: t('defaults.message.updated', item: Task.model_name.human)
     else
+      @qiita_id = @form.qiita_id
+      @choice = @form.choice
       @start_date = Date.new(@form.start_date[1].to_i, @form.start_date[2].to_i, @form.start_date[3].to_i)
       @doing_date = Date.new(@form.doing_date[1].to_i, @form.doing_date[2].to_i, @form.doing_date[3].to_i)
       flash.now['danger'] = t('defaults.message.not_updated', item: Task.model_name.human)
@@ -68,7 +72,7 @@ class TasksController < ApplicationController
   private
 
   def task_params
-    params.require(:task).permit(:name, :body, :start_date, :doing_date, :task_state, :qiita_id)
+    params.require(:task).permit(:name, :body, :start_date, :doing_date, :task_state, :qiita_id, :choice)
   end
 
   def set_task

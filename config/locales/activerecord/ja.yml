@@ -17,7 +17,7 @@ ja:
         task_state: 'ステータス'
         created_at: '作成日'
         select-children: '記事選択'
-        article_choice: '記事取得'
+        choice: '記事取得'
   ja:
   enums:
     task:

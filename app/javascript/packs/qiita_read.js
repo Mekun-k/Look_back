@@ -1,11 +1,7 @@
-import { end } from "@popperjs/core";
-
-$(document).on ("turbolinks:load", function(){
-    $('#task_choice').change(function(){
-        var text = $('option:selected').val();
-        if (text == 1){
+    $(document).ready(function(){
+        var choice = $("#choice").val();
+        if (choice == 1){
         // Qiitaユーザー記事がクリックされた時の処理
-
             $.ajax({
                 // 読み込みの設定
                 type: "GET",
@@ -16,9 +12,15 @@ $(document).on ("turbolinks:load", function(){
                 function (items_data) {
                     $('#task_qiita_id').children('option').remove();
                     // 最初のoption要素削除
+
+                    var qiita_id = $("#qiita").val(); //qiita_id取得
+
                     $.each(items_data, function(key, value) {
                         $('#task_qiita_id').append("<option value='" + value.id + "'>" + value.title + "</option>");
-                        // タイトルを出力、記事IDをvalueに設定
+
+                        if ( value.id == qiita_id) {
+                          $('#task_qiita_id').val(qiita_id);
+                        };
                     });
                 },
                 function () {
@@ -27,8 +29,9 @@ $(document).on ("turbolinks:load", function(){
                 }
             );
 
-        }else if (text == 2){
+        }else if (choice == 2){
         // Qiitaストック記事がクリックされた時の処理
+
             $.ajax({
                 // 読み込みの設定
                 type: "GET",
@@ -39,9 +42,15 @@ $(document).on ("turbolinks:load", function(){
                 function (stocks_data) {
                     $('#task_qiita_id').children('option').remove();
                     // 最初のoption要素削除
+
+                    var qiita_id = $("#qiita").val(); //qiita_id取得
+
                     $.each(stocks_data, function(key, value) {
                         $('#task_qiita_id').append("<option value='" + value.id + "'>" + value.title + "</option>");
                         // タイトルを出力、記事IDをvalueに設定
+                        if ( value.id == qiita_id) {
+                          $('#task_qiita_id').val(qiita_id);
+                        };
                     });
                 },
                 function () {
@@ -56,4 +65,3 @@ $(document).on ("turbolinks:load", function(){
             // Qiitaのoptionリセット
         }
     });
-});
