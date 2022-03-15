@@ -12,8 +12,8 @@ class TasksController < ApplicationController
 
   def new
     @form = TaskForm.new
-    @start_date = @form.start_date
-    @doing_date = @form.doing_date
+    @start_date = Date.today
+    @doing_date = Date.today
   end
 
   def create
