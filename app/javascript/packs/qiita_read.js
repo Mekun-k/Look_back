@@ -7,7 +7,8 @@
                 type: "GET",
                 url: "https://qiita.com/api/v2/users/akaidonnbei/items", // ファイルパス（相対パス）
                 dataType: "json", // ファイル形式
-                async: false // 非同期通信フラグ
+                async: false, // 非同期通信フラグ
+                cathe: false
             }).then(
                 function (items_data) {
                     $('#task_qiita_id').children('option').remove();
@@ -37,7 +38,8 @@
                 type: "GET",
                 url: "https://qiita.com/api/v2/users/akaidonnbei/stocks", // ファイルパス（相対パス）
                 dataType: "json", // ファイル形式
-                async: false // 非同期通信フラグ
+                async: false, // 非同期通信フラグ
+                cathe: false
             }).then(
                 function (stocks_data) {
                     $('#task_qiita_id').children('option').remove();
