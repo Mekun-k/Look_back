@@ -1,3 +1,5 @@
+<%= javascript_pack_tag "qiita_show.js" %>
+
  <div class="container">
    <div class="row">
      <div class="col-lg">
@@ -8,33 +10,35 @@
             <tr>
               <div class="my-3">
                 <th scope="row"><%= Task.human_attribute_name("name") %></th>
-                <td><%= @task.name %></td>
+                <td><%= @form.name %></td>
               </div>
             </tr>
 
             <tr>
               <th scope="row"><%= Task.human_attribute_name("body") %></th>
-              <td><%= @task.body %></td>
+              <td><%= @form.body %></td>
             </tr>
 
             <tr>
-              <th scope="row">リンク</th>
-              <td></td>
+              <th scope="row">記事</th>
+              <td id="article_url"></td>
+              <input type="hidden" id="qiita_show" value="<%= @qiita_id %>" >
+              <input type="hidden" id="choice_show" value="<%= @choice %>" >
             </tr>
 
             <tr>
               <th scope="row"><%= Task.human_attribute_name("task_state") %></th>
-              <td><%= @task.task_state_i18n %></td>
+              <td><%= @form.task_state %></td>
             </tr>
 
             <tr>
               <th scope="row"><%= Task.human_attribute_name("created_at") %></th>
-              <td><%= @task.created_at %></td>
+              <td><%= @form.created_at.strftime('%Y/%m/%d') %></td>
             </tr>
 
             <tr>
               <th scope="row"><%= Task.human_attribute_name("doing_date") %></th>
-              <td><%= @task.doing_date %></td>
+              <td><%= @form.doing_date.strftime('%Y/%m/%d') %></td>
             </tr>
 
             <%# ここから下は未実装 %>
@@ -52,7 +56,7 @@
           </tbody>
         </table>
         <div class="text-center">
-          <%= render 'crud_menus', { task: @task } if current_user.own?(@task)%>
+          <%= render 'crud_menus', { form: @form } if current_user.own?(@form)%>
         </div>
       </div>
       <div class="text-center">
@@ -63,3 +67,4 @@
      </div>
    </div>
  </div>
+

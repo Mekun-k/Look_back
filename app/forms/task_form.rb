@@ -2,7 +2,7 @@ class TaskForm
   include ActiveModel::Model # 通常のモデルのようにvalidationなどを使えるようにしたいのでActiveModel::Modelをinclude
   include ActiveRecord::AttributeAssignment
 
-  attr_accessor :name, :body, :task_state, :doing_date, :start_date, :qiita_id, :user_id, :task_id, :choice
+  attr_accessor :name, :body, :task_state, :doing_date, :start_date, :qiita_id, :user_id, :task_id, :choice, :created_at
   # バリデーション
   with_options presence: true do
     validates :name, length: { maximum: 30 }
@@ -13,7 +13,7 @@ class TaskForm
     validates :choice
   end
 
-  validates :body, length: { maximum: 50 }
+  validates :body, length: { maximum: 100 }
 
   delegate :persisted?, to: :task
 
@@ -47,7 +47,8 @@ class TaskForm
       start_date: task.start_date,
       qiita_id: task.article&.qiita_id,
       task_id: task.article&.task_id,
-      choice: task.article&.choice
+      choice: task.article&.choice,
+      created_at: task.created_at
     }
   end
 end

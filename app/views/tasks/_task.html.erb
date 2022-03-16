@@ -11,7 +11,10 @@
               <%= task.body %>
           </li>
           <li class="list-inline-item">
-# リンク
+
+          </li>
+          <li class="list-inline-item">
+              <%= task.doing_date %>
           </li>
           <li class="list-inline-item">
             <%= link_to task_path(task), method: :get do %>

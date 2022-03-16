@@ -1,13 +1,16 @@
 class TasksController < ApplicationController
   before_action :authenticate_user!, except: %i[show, index]
-  before_action :set_task, only: %i[ edit update destroy ]
+  before_action :set_task, only: %i[ show edit update destroy ]
 
   def index
     @tasks = Task.all.includes(:user).order(created_at: :desc)
   end
 
   def show
-    @task = Task.find(params[:id])
+    @form = TaskForm.new(task: @task)
+    @form.user_id = current_user.id
+    @qiita_id = @form.qiita_id
+    @choice = @form.choice
   end
 
   def new
