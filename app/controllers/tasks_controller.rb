@@ -4,6 +4,10 @@ class TasksController < ApplicationController
 
   def index
     @tasks = Task.all.includes(:user).order(created_at: :desc)
+    @articles = Article.all.includes(:task).order(created_at: :desc)
+
+    @qiita = @articles.map(&:qiita_id)
+    @qiita_json = @qiita.to_json.html_safe
   end
 
   def show
@@ -70,6 +74,10 @@ class TasksController < ApplicationController
 
   def today
     @tasks = Task.doing_today.includes(:user).order(created_at: :desc)
+    @articles = Article.all.includes(:task).order(created_at: :desc)
+
+    @qiita = @articles.map(&:qiita_id)
+    @qiita_json = @qiita.to_json.html_safe
   end
 
   private

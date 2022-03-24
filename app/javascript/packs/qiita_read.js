@@ -5,7 +5,7 @@
             $.ajax({
                 // 読み込みの設定
                 type: "GET",
-                url: "https://qiita.com/api/v2/users/akaidonnbei/items", // ファイルパス（相対パス）
+                url: "https://qiita.com/api/v2/users/Mekun/items", // ファイルパス（相対パス）
                 dataType: "json", // ファイル形式
                 async: false, // 非同期通信フラグ
                 cathe: false
@@ -36,7 +36,7 @@
             $.ajax({
                 // 読み込みの設定
                 type: "GET",
-                url: "https://qiita.com/api/v2/users/akaidonnbei/stocks", // ファイルパス（相対パス）
+                url: "https://qiita.com/api/v2/users/Mekun/stocks", // ファイルパス（相対パス）
                 dataType: "json", // ファイル形式
                 async: false, // 非同期通信フラグ
                 cathe: false
