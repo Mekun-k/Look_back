@@ -27,10 +27,9 @@ $(document).ready(function(){
     var qiita_all_articles = qiita_items_article.concat(qiita_stocks_article);
 
     $.each(qiita_id, function(key, value) {
-        var Qiita_id = value
-        $.each(qiita_all_articles, function(key, value) {
-            if (value.id == Qiita_id){
-                $('#'+ value.id +'').append("<a href='" + value.url + "', target='_blank', rel='noopener noreferrer' >" + value.title + "</a>");
+        $.each(qiita_all_articles, function(key2, value2) {
+            if (value2.id == value){
+                $('#'+ value2.id +'').append("<a href='" + value2.url + "', target='_blank', rel='noopener noreferrer' >" + value2.title + "</a>");
             }
         });
     });
