@@ -8,6 +8,7 @@ ja:
         email: 'メールアドレス'
         password: 'パスワード'
         password_confirmation: 'パスワード確認'
+        qiita_user_id: 'Qiitaユーザ名'
       task:
         name: 'タスク名'
         body: '備考'

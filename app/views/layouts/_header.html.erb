@@ -5,7 +5,7 @@
           <ul class="navbar-nav">
             <% if user_signed_in? %>
               <li class="nav-item active">
-                <%= link_to (t 'defaults.account'), pages_show_path, class: 'nav-link' %>
+                <%= link_to (t 'defaults.account'), edit_user_path(current_user), class: 'nav-link' %>
               </li>
               <li class="nav-item active">
                 <%= link_to (t 'layouts._header.top'), root_path, class: 'nav-link' %>
