@@ -1,6 +1,7 @@
 class TasksController < ApplicationController
   before_action :authenticate_user!, except: %i[show, index]
   before_action :set_task, only: %i[ show edit update destroy ]
+  before_action :set_qiita_user_id, only: %i[ index show new edit ]
 
   def index
     @tasks = Task.all.includes(:user).order(created_at: :desc)
@@ -88,5 +89,9 @@ class TasksController < ApplicationController
 
   def set_task
     @task = current_user.tasks.find(params[:id])
+  end
+
+  def set_qiita_user_id
+    @qiita_user_id = current_user.qiita_user_id
   end
 end

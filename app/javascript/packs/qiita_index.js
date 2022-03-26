@@ -4,10 +4,13 @@ $(document).ready(function(){
     var qiitaJson = $('.qiita_json').val();
     var qiita_id = JSON.parse(qiitaJson);
 
+    // コントローラーからqiita_user_idを取得
+    var qiita_user_id = $("#qiita_user_id_index").val();
+
     // QiitaAPIからユーザーがストックした記事を取得
     var qiita_stocks = $.ajax({
         type: "GET",
-        url: "https://qiita.com/api/v2/users/Mekun/stocks",
+        url: "https://qiita.com/api/v2/users/"+ qiita_user_id +"/stocks",
         dataType: "json", // ファイル形式
         async: false, // 非同期通信フラグ
         cathe: false
@@ -16,7 +19,7 @@ $(document).ready(function(){
     // QiitaAPIからユーザーの記事を取得
     var qiita_items = $.ajax({
         type: "GET",
-        url: "https://qiita.com/api/v2/users/Mekun/items",
+        url: "https://qiita.com/api/v2/users/"+ qiita_user_id +"/items",
         dataType: "json", // ファイル形式
         async: false, // 非同期通信フラグ
         cathe: false

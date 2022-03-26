@@ -2,6 +2,8 @@ import { end } from "@popperjs/core";
 
 $(document).on ("turbolinks:load", function(){
     $('#task_choice').change(function(){
+        // コントローラーからqiita_user_idを取得
+        var qiita_user_id = $("#qiita_user_id_new").val();
         var text = $('option:selected').val();
         if (text == 1){
         // Qiitaユーザー記事がクリックされた時の処理
@@ -9,7 +11,7 @@ $(document).on ("turbolinks:load", function(){
             $.ajax({
                 // 読み込みの設定
                 type: "GET",
-                url: "https://qiita.com/api/v2/users/Mekun/items", // ファイルパス（相対パス）
+                url: "https://qiita.com/api/v2/users/"+ qiita_user_id +"/items", // ファイルパス（相対パス）
                 dataType: "json", // ファイル形式
                 async: false, // 非同期通信フラグ
                 cathe: false
@@ -33,7 +35,7 @@ $(document).on ("turbolinks:load", function(){
             $.ajax({
                 // 読み込みの設定
                 type: "GET",
-                url: "https://qiita.com/api/v2/users/Mekun/stocks", // ファイルパス（相対パス）
+                url: "https://qiita.com/api/v2/users/"+ qiita_user_id +"/stocks", // ファイルパス（相対パス）
                 dataType: "json", // ファイル形式
                 async: false, // 非同期通信フラグ
                 cathe: false
