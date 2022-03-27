@@ -1,5 +1,4 @@
 <div class="col-sm-12 col-lg-4 mb-3">
-  <div id="task-id-<%= task.id %>">
     <div class="card">
       <div class="card-body">
         <h4 class="card-name">
@@ -11,7 +10,7 @@
               <%= task.body %>
           </li>
           <li class="list-inline-item">
-              <%= task.task_url %>
+              <div id="<%= task.article.qiita_id %>"></div>
           </li>
           <li class="list-inline-item">
             <%= link_to task_path(task), method: :get do %>
@@ -21,5 +20,4 @@
         </ul>
       </div>
     </div>
-  </div>
 </div>

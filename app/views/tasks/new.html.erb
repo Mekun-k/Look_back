@@ -3,7 +3,8 @@
      <div class="col-lg-8 offset-lg-2">
        <h1 class="text-center"><%= t('.title') %></h1>
         <div class="y-5">
-         <%= render 'form', { task: @task } %>
+         <%= render 'form', { form: @form } %>
+         <input type="hidden" id="qiita_user_id_new" value="<%= @qiita_user_id %>" >
         </div>
      </div>
    </div>

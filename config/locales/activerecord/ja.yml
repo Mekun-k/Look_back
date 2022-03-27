@@ -8,6 +8,7 @@ ja:
         email: 'メールアドレス'
         password: 'パスワード'
         password_confirmation: 'パスワード確認'
+        qiita_user_id: 'Qiitaユーザ名'
       task:
         name: 'タスク名'
         body: '備考'
@@ -16,6 +17,8 @@ ja:
         doing_date: '復習日'
         task_state: 'ステータス'
         created_at: '作成日'
+        select-children: '記事選択'
+        choice: '記事取得'
   ja:
   enums:
     task:
