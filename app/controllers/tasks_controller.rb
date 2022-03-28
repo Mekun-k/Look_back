@@ -22,6 +22,8 @@ class TasksController < ApplicationController
     @form = TaskForm.new
     @start_date = Date.today
     @doing_date = Date.today
+    @task_cycle = current_user.default_task_cycle
+    @repeat_count = current_user.default_repeat_count
   end
 
   def create
@@ -45,11 +47,14 @@ class TasksController < ApplicationController
     @doing_date = @form.doing_date
     @qiita_id = @form.qiita_id
     @choice = @form.choice
+    @task_cycle = @form.task_cycle
+    @repeat_count = @form.repeat_count
   end
 
   def update
     @article = @task.article
-    @form = TaskForm.new(task_params, task: @task, article: @article)
+    @reminder = @task.reminder
+    @form = TaskForm.new(task_params, task: @task, article: @article, reminder: @reminder)
     @form.user_id = current_user.id
     if @form.valid?
       @form.save
@@ -84,7 +89,7 @@ class TasksController < ApplicationController
   private
 
   def task_params
-    params.require(:task).permit(:name, :body, :start_date, :doing_date, :task_state, :qiita_id, :choice)
+    params.require(:task).permit(:name, :body, :start_date, :doing_date, :task_state, :qiita_id, :choice, :task_cycle, :repeat_count)
   end
 
   def set_task

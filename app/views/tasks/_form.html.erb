@@ -38,6 +38,18 @@
 
     <div class= form-group >
         <div class="m-3">
+            <%= form.number_field :task_cycle, value: @task_cycle, min: 1, max: 30 %>
+        </div>
+    </div>
+
+    <div class= form-group >
+        <div class="m-3">
+            <%= form.number_field :repeat_count, value: @repeat_count, min: 1, max: 50 %>
+        </div>
+    </div>
+
+    <div class= form-group >
+        <div class="m-3">
             <%= form.date_select :start_date, selected: @start_date %>
         </div>
     </div>

@@ -9,9 +9,9 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @user.id = current_user.id
     if @user.update(user_params)
-      redirect_to edit_user_path(@user), success: t('defaults.message.qiita_user_name_updated')
+      redirect_to edit_user_path(@user), success: t('defaults.message.user_info_updated')
     else
-      flash.now['danger'] = t('defaults.message.not_qiita_user_name_updated')
+      flash.now['danger'] = t('defaults.message.not_user_info_updated')
       render :edit
     end
   end
