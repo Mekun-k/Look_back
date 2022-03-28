@@ -3,7 +3,7 @@ ja:
     login: 'ログイン'
     register: '登録'
     logout: 'ログアウト'
-    account: 'アカウント'
+    account: 'アカウント設定'
     message:
       login: 'ログインしました'
       signed_out: 'ログアウトしました'

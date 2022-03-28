@@ -3,12 +3,15 @@ ja:
     models:
       user: 'ユーザー'
       task: 'タスク'
+      reminder: 'リマインダー'
     attributes:
       user:
         email: 'メールアドレス'
         password: 'パスワード'
         password_confirmation: 'パスワード確認'
         qiita_user_id: 'Qiitaユーザ名'
+        default_task_cycle: '繰り返し周期'
+        default_repeat_count: '繰り返し回数'
       task:
         name: 'タスク名'
         body: '備考'
