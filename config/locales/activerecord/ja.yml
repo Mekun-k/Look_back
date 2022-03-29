@@ -3,12 +3,15 @@ ja:
     models:
       user: 'ユーザー'
       task: 'タスク'
+      reminder: 'リマインダー'
     attributes:
       user:
         email: 'メールアドレス'
         password: 'パスワード'
         password_confirmation: 'パスワード確認'
         qiita_user_id: 'Qiitaユーザ名'
+        default_task_cycle: '繰り返し周期'
+        default_repeat_count: '繰り返し回数'
       task:
         name: 'タスク名'
         body: '備考'
@@ -19,6 +22,8 @@ ja:
         created_at: '作成日'
         select-children: '記事選択'
         choice: '記事取得'
+        repeat_count: '繰り返し回数'
+        task_cycle: '繰り返し周期'
   ja:
   enums:
     task:

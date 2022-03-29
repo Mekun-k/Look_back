@@ -42,17 +42,16 @@
               <td><%= @form.doing_date.strftime('%Y/%m/%d') %></td>
             </tr>
 
-            <%# ここから下は未実装 %>
+
             <tr>
-              <th scope="row">周期</th>
-              <td></td>
+              <th scope="row"><%= Task.human_attribute_name("task_cycle") %></th>
+              <td><%= @form.task_cycle %> 日ごと</td>
             </tr>
 
             <tr>
-              <th scope="row">繰り返し</th>
-              <td></td>
+              <th scope="row"><%= Task.human_attribute_name("repeat_count") %></th>
+              <td><%= @form.repeat_count %> 回</td>
             </tr>
-            <%# ここから上は未実装 %>
 
           </tbody>
         </table>
