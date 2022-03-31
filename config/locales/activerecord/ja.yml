@@ -12,6 +12,7 @@ ja:
         qiita_user_id: 'Qiitaユーザ名'
         default_task_cycle: '繰り返し周期'
         default_repeat_count: '繰り返し回数'
+        notification_at: '通知時刻'
       task:
         name: 'タスク名'
         body: '備考'

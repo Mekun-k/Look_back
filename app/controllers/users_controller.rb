@@ -8,7 +8,16 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     @user.id = current_user.id
+
+    @notification_at_1 = user_params[:notification_at_1]
+    @notification_at_2 = user_params[:notification_at_2]
+    @notification_at_3 = user_params[:notification_at_3]
+    @notification_all = "#{@notification_at_1},#{@notification_at_2},#{@notification_at_3}"
+    @notification_at = @notification_all.split(',')
+
     if @user.update(user_params)
+      @user.notification_at = @notification_at
+      @user.save
       redirect_to edit_user_path(@user), success: t('defaults.message.user_info_updated')
     else
       flash.now['danger'] = t('defaults.message.not_user_info_updated')
@@ -19,6 +28,6 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:qiita_user_id, :default_task_cycle, :default_repeat_count)
+    params.require(:user).permit(:qiita_user_id, :default_task_cycle, :default_repeat_count, :notification_at_1, :notification_at_2, :notification_at_3)
   end
 end
