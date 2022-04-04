@@ -3,15 +3,20 @@ class UsersController < ApplicationController
   def edit
     @user = User.find(params[:id])
     @user.id = current_user.id
+    @notifications = @user.notification_at
+    @notification = JSON.parse(@notifications)
+    @notification_at_1 = @notification[0]
+    @notification_at_2 = @notification[1]
+    @notification_at_3 = @notification[2]
   end
 
-  def update
+def update
     @user = User.find(params[:id])
     @user.id = current_user.id
 
-    @notification_at_1 = user_params[:notification_at_1]
-    @notification_at_2 = user_params[:notification_at_2]
-    @notification_at_3 = user_params[:notification_at_3]
+    @notification_at_1 = params[:notification_at_1]
+    @notification_at_2 = params[:notification_at_2]
+    @notification_at_3 = params[:notification_at_3]
     @notification_all = "#{@notification_at_1},#{@notification_at_2},#{@notification_at_3}"
     @notification_at = @notification_all.split(',')
 
@@ -28,6 +33,6 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:qiita_user_id, :default_task_cycle, :default_repeat_count, :notification_at_1, :notification_at_2, :notification_at_3)
+    params.require(:user).permit(:qiita_user_id, :default_task_cycle, :default_repeat_count)
   end
 end
