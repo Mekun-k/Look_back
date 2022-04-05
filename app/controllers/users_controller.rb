@@ -4,10 +4,12 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @user.id = current_user.id
     @notifications = @user.notification_at
-    @notification = JSON.parse(@notifications)
-    @notification_at_1 = @notification[0]
-    @notification_at_2 = @notification[1]
-    @notification_at_3 = @notification[2]
+    if @notifications.present?
+      @notification = JSON.parse(@notifications)
+      @notification_at_1 = @notification[0]
+      @notification_at_2 = @notification[1]
+      @notification_at_3 = @notification[2]
+    end
   end
 
 def update
