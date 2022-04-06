@@ -7,6 +7,8 @@ class User < ApplicationRecord
 
   has_many :tasks, dependent: :destroy
 
+  validates :notification_at, length: { maximum: 27 }
+
   def own?(object)
     object.user_id == id
   end

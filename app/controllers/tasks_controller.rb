@@ -4,7 +4,8 @@ class TasksController < ApplicationController
   before_action :set_qiita_user_id, only: %i[ index show new edit ]
 
   def index
-    @tasks = Task.all.includes(:user).order(created_at: :desc)
+    @tasks = Task.where(user_id: current_user.id).includes(:user).order("created_at DESC")
+
     @articles = Article.all.includes(:task).order(created_at: :desc)
 
     @qiita = @articles.map(&:qiita_id)
@@ -79,7 +80,10 @@ class TasksController < ApplicationController
   end
 
   def today
-    @tasks = Task.doing_today.includes(:user).order(created_at: :desc)
+    @task = Task.where(user_id: current_user.id).includes(:user).order("created_at DESC")
+    @tasks = @task.doing_today
+
+
     @articles = Article.all.includes(:task).order(created_at: :desc)
 
     @qiita = @articles.map(&:qiita_id)
