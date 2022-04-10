@@ -8,9 +8,14 @@ namespace :line_bot do
     secret = ENV["LINE_CHANNEL_SECRET"]
     token = ENV["LINE_CHANNEL_TOKEN"]
 
-    user = User.all
-    user.each{|u|
-    uid = u.uid
+    client = Line::Bot::Client.new { |config|
+        config.channel_secret = secret
+        config.channel_token = token
+    }
+
+    User.all.each{|u|
+
+      uid = u.uid
 
       notification_at = u.notification_at
       notification = JSON.parse(notification_at)
@@ -24,12 +29,7 @@ namespace :line_bot do
           type: 'text',
           text: '復習の時間です1'
         }
-        client = Line::Bot::Client.new { |config|
-            config.channel_secret = secret
-            config.channel_token = token
-        }
-        response = client.push_message(uid, message)
-        p response
+        response = client.push_message(ENV["LINE_UID"], message)
       end
 
       if current_time == notification_2
@@ -37,12 +37,7 @@ namespace :line_bot do
           type: 'text',
           text: '復習の時間です2'
         }
-        client = Line::Bot::Client.new { |config|
-            config.channel_secret = secret
-            config.channel_token = token
-        }
-        response = client.push_message(uid, message)
-        p response
+        response = client.push_message(ENV["LINE_UID"], message)
       end
 
       if current_time == notification_3
@@ -50,12 +45,7 @@ namespace :line_bot do
           type: 'text',
           text: '復習の時間です3'
         }
-        client = Line::Bot::Client.new { |config|
-            config.channel_secret = secret
-            config.channel_token = token
-        }
-        response = client.push_message(uid, message)
-        p response
+        response = client.push_message(ENV["LINE_UID"], message)
       end
     }
   end
