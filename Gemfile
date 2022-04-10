@@ -52,6 +52,7 @@ gem 'devise'
 gem 'omniauth-line'
 gem 'line-bot-api'
 gem 'omniauth-rails_csrf_protection'
+gem 'whenever'
 # 日本語化
 gem 'rails-i18n', '~> 6.0'
 gem 'devise-i18n'
