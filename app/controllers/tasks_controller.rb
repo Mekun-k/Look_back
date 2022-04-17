@@ -1,7 +1,7 @@
 class TasksController < ApplicationController
   before_action :authenticate_user!, except: %i[show, index]
   before_action :set_task, only: %i[ show edit update destroy ]
-  before_action :set_qiita_user_id, only: %i[ index show new edit ]
+  before_action :set_qiita_user_id, only: %i[ index show new edit today ]
 
   def index
     @tasks = Task.where(user_id: current_user.id).includes(:user).order("created_at DESC")
