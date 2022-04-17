@@ -35,6 +35,6 @@ def update
   private
 
   def user_params
-    params.require(:user).permit(:qiita_user_id, :default_task_cycle, :default_repeat_count)
+    params.require(:user).permit(:qiita_user_id, :default_task_cycle, :default_repeat_count, :name)
   end
 end
