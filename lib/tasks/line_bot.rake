@@ -27,7 +27,9 @@ namespace :line_bot do
       if current_time == notification_1
         message = {
           type: 'text',
-          text: '復習の時間です1'
+          text: '今日のタスクです
+https://5677-58-191-104-210.ngrok.io/tasks/today
+          '
         }
         response = client.push_message(ENV["LINE_UID"], message)
       end
@@ -35,7 +37,9 @@ namespace :line_bot do
       if current_time == notification_2
         message = {
           type: 'text',
-          text: '復習の時間です2'
+          text: '今日のタスクです
+https://5677-58-191-104-210.ngrok.io/tasks/today
+          '
         }
         response = client.push_message(ENV["LINE_UID"], message)
       end
@@ -43,7 +47,9 @@ namespace :line_bot do
       if current_time == notification_3
         message = {
           type: 'text',
-          text: '復習の時間です3'
+          text: '今日のタスクです
+https://5677-58-191-104-210.ngrok.io/tasks/today
+          '
         }
         response = client.push_message(ENV["LINE_UID"], message)
       end
