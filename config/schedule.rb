@@ -11,3 +11,12 @@ every 1.minutes do
     raise e
   end
 end
+
+every 1.days, at: '23:55 pm'
+  rake 'change_count:update'
+  rake 'change_date:update'
+end
+
+every 1.days, at: '0:00 am'
+  rake 'change_state:update'
+end
