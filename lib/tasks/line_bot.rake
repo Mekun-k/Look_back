@@ -2,6 +2,8 @@ namespace :line_bot do
   desc 'LINEプッシュ通知を送ります'
   task :push => :environment do
 
+    task_url = ENV["TASK_URL"]
+
     time = Time.current
     current_time = time.strftime('%H:%M')
 
@@ -28,7 +30,7 @@ namespace :line_bot do
         message = {
           type: 'text',
           text: '今日のタスクです
-https://5677-58-191-104-210.ngrok.io/tasks/today
+'+ task_url +'
           '
         }
         response = client.push_message(ENV["LINE_UID"], message)
@@ -38,7 +40,7 @@ https://5677-58-191-104-210.ngrok.io/tasks/today
         message = {
           type: 'text',
           text: '今日のタスクです
-https://5677-58-191-104-210.ngrok.io/tasks/today
+'+ task_url +'
           '
         }
         response = client.push_message(ENV["LINE_UID"], message)
@@ -48,7 +50,7 @@ https://5677-58-191-104-210.ngrok.io/tasks/today
         message = {
           type: 'text',
           text: '今日のタスクです
-https://5677-58-191-104-210.ngrok.io/tasks/today
+'+ task_url +'
           '
         }
         response = client.push_message(ENV["LINE_UID"], message)
