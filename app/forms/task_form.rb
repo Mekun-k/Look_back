@@ -2,12 +2,11 @@ class TaskForm
   include ActiveModel::Model # 通常のモデルのようにvalidationなどを使えるようにしたいのでActiveModel::Modelをinclude
   include ActiveRecord::AttributeAssignment
 
-  attr_accessor :name, :body, :task_state, :doing_date, :start_date, :qiita_id, :user_id, :task_id, :choice, :created_at, :task_cycle ,:repeat_count
+  attr_accessor :name, :body, :task_state, :doing_date, :qiita_id, :user_id, :task_id, :choice, :created_at, :task_cycle ,:repeat_count
   # バリデーション
   with_options presence: true do
     validates :name, length: { maximum: 30 }
     validates :task_state
-    validates :start_date
     validates :doing_date
     validates :qiita_id
     validates :choice
@@ -29,7 +28,7 @@ class TaskForm
 
   def save
     return if invalid?
-      task.update(user_id: user_id, name: name, body: body, task_state: task_state, doing_date: doing_date, start_date: start_date)
+      task.update(user_id: user_id, name: name, body: body, task_state: task_state, doing_date: doing_date)
       article.update(task_id: task.id, qiita_id: qiita_id, choice: choice)
       reminder.update(task_id: task.id, task_cycle: task_cycle, repeat_count: repeat_count)
   end
@@ -48,7 +47,6 @@ class TaskForm
       body: task.body,
       task_state: task.task_state,
       doing_date: task.doing_date,
-      start_date: task.start_date,
       qiita_id: task.article&.qiita_id,
       task_id: task.article&.task_id,
       choice: task.article&.choice,

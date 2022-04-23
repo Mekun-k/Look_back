@@ -21,7 +21,6 @@ class TasksController < ApplicationController
 
   def new
     @form = TaskForm.new
-    @start_date = Date.today
     @doing_date = Date.today
     @task_cycle = current_user.default_task_cycle
     @repeat_count = current_user.default_repeat_count
@@ -36,7 +35,6 @@ class TasksController < ApplicationController
       redirect_to tasks_path, success: t('defaults.message.created', item: Task.model_name.human)
     else
       flash.now['danger'] = t('defaults.message.not_created', item: Task.model_name.human)
-      @start_date = Date.new(@form.start_date[1].to_i, @form.start_date[2].to_i, @form.start_date[3].to_i)
       @doing_date = Date.new(@form.doing_date[1].to_i, @form.doing_date[2].to_i, @form.doing_date[3].to_i)
       render :new
     end
@@ -44,7 +42,6 @@ class TasksController < ApplicationController
 
   def edit
     @form = TaskForm.new(task: @task)
-    @start_date = @form.start_date
     @doing_date = @form.doing_date
     @qiita_id = @form.qiita_id
     @choice = @form.choice
@@ -63,7 +60,6 @@ class TasksController < ApplicationController
     else
       @qiita_id = @form.qiita_id
       @choice = @form.choice
-      @start_date = Date.new(@form.start_date[1].to_i, @form.start_date[2].to_i, @form.start_date[3].to_i)
       @doing_date = Date.new(@form.doing_date[1].to_i, @form.doing_date[2].to_i, @form.doing_date[3].to_i)
       flash.now['danger'] = t('defaults.message.not_updated', item: Task.model_name.human)
       render :edit
@@ -93,7 +89,7 @@ class TasksController < ApplicationController
   private
 
   def task_params
-    params.require(:task).permit(:name, :body, :start_date, :doing_date, :task_state, :qiita_id, :choice, :task_cycle, :repeat_count)
+    params.require(:task).permit(:name, :body, :doing_date, :task_state, :qiita_id, :choice, :task_cycle, :repeat_count)
   end
 
   def set_task
