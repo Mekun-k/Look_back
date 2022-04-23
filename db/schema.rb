@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_30_085516) do
+ActiveRecord::Schema.define(version: 2022_04_23_040250) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,7 +37,6 @@ ActiveRecord::Schema.define(version: 2022_03_30_085516) do
     t.bigint "user_id"
     t.string "name", null: false
     t.string "body"
-    t.date "start_date", null: false
     t.date "doing_date", null: false
     t.integer "task_state", default: 0, null: false
     t.datetime "created_at", precision: 6, null: false

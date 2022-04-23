@@ -2,6 +2,8 @@ namespace :line_bot do
   desc 'LINEプッシュ通知を送ります'
   task :push => :environment do
 
+    task_url = ENV["TASK_URL"]
+
     time = Time.current
     current_time = time.strftime('%H:%M')
 
@@ -27,7 +29,9 @@ namespace :line_bot do
       if current_time == notification_1
         message = {
           type: 'text',
-          text: '復習の時間です1'
+          text: '今日のタスクです
+'+ task_url +'
+          '
         }
         response = client.push_message(ENV["LINE_UID"], message)
       end
@@ -35,7 +39,9 @@ namespace :line_bot do
       if current_time == notification_2
         message = {
           type: 'text',
-          text: '復習の時間です2'
+          text: '今日のタスクです
+'+ task_url +'
+          '
         }
         response = client.push_message(ENV["LINE_UID"], message)
       end
@@ -43,7 +49,9 @@ namespace :line_bot do
       if current_time == notification_3
         message = {
           type: 'text',
-          text: '復習の時間です3'
+          text: '今日のタスクです
+'+ task_url +'
+          '
         }
         response = client.push_message(ENV["LINE_UID"], message)
       end
