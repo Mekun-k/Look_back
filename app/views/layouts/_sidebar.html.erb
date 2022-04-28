@@ -1,0 +1,10 @@
+<main class="pt-5 position-relative flex-grow-1">
+  <div class="sidebar p-4 bg-dark col-2 position-absolute">
+    <div class="list-group" id="list-tab" role="tablist">
+      <%= link_to (t 'defaults.account'), edit_user_path(current_user), class: 'list-group-item list-group-item-action' %>
+      <%= link_to t('tasks.index.title'), tasks_path, class: 'list-group-item list-group-item-action' %>
+      <%= link_to t('tasks.today.title'), today_tasks_path, class: 'list-group-item list-group-item-action' %>
+      <%= link_to t('tasks.new.title'), new_task_path, class: 'list-group-item list-group-item-action' %>
+      <%= link_to 'トップページ', root_path, class: 'list-group-item list-group-item-action' %>
+    </div>
+  </div>
