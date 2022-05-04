@@ -5,16 +5,28 @@ ul {
 html, body {
   height: 100%;
   width: 100%;
-  padding: 0%;
-  margin: 0%;
+
+
 }
 .sidebar {
-  top: 0;
-  left: 0%;
-  height: 100%;
-  transition: all .35s ease;
+  max-width: 250px;
+  min-width: 250px;
 }
 
 #sidbar-toggler {
   cursor: pointer;
+}
+
+/* 見栄え */
+.sidebar .brand{
+    background-color: #0d6efdc9;
+    color: white;
+}
+.sidebar .nav-link{
+    background-color: rgba(255, 255, 255, 0.493);
+    color: white;
+}
+
+main{
+    transition: 0.3s all ease;
 }

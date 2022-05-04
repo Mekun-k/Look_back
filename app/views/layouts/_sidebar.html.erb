@@ -1,10 +1,26 @@
-<main class="pt-5 position-relative flex-grow-1">
-  <div class="sidebar p-4 bg-dark col-2 position-absolute">
-    <div class="list-group" id="list-tab" role="tablist">
-      <%= link_to (t 'defaults.account'), edit_user_path(current_user), class: 'list-group-item list-group-item-action' %>
-      <%= link_to t('tasks.index.title'), tasks_path, class: 'list-group-item list-group-item-action' %>
-      <%= link_to t('tasks.today.title'), today_tasks_path, class: 'list-group-item list-group-item-action' %>
-      <%= link_to t('tasks.new.title'), new_task_path, class: 'list-group-item list-group-item-action' %>
-      <%= link_to 'トップページ', root_path, class: 'list-group-item list-group-item-action' %>
-    </div>
+
+
+<nav class="sidebar bg-primary bg-gradient">
+  <div class="brand p-4">
+    <h4>
+        Sidabar Sample
+    </h4>
   </div>
+  <ul class="nav flex-column m-o p-3">
+    <li class="nav-item mb-2">
+      <%= link_to (t 'defaults.account'), edit_user_path(current_user), class: 'nav-link' %>
+    </li>
+    <li class="nav-item mb-2">
+      <%= link_to t('tasks.index.title'), tasks_path, class: 'nav-link w-100 h-100' %>
+    </li>
+    <li class="nav-item mb-2">
+      <%= link_to t('tasks.today.title'), today_tasks_path, class: 'nav-link w-100 h-100' %>
+    </li>
+    <li class="nav-item mb-2">
+      <%= link_to t('tasks.new.title'), new_task_path, class: 'nav-link w-100 h-100' %>
+    </li>
+    <li class="nav-item mb-2">
+      <%= link_to 'トップページ', root_path, class: 'nav-link w-100 h-100' %>
+    </li>
+  </ul>
+</nav>
