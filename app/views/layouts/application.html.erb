@@ -12,14 +12,13 @@
   </head>
 
   <body class="h-100 bg-light">
+  <%= render 'devise/shared/flash_message' %>
     <main class="h-100">
       <div class="page-wrapper d-flex flex-row h-100 w-100">
 
-          <%= render 'devise/shared/flash_message' %>
           <%= render 'layouts/sidebar' %>
 
-        <div class="page-content">
-
+        <div class="container-fluid">
           <%= render 'layouts/header' %>
 
           <!-- 下のコンテンツ -->
@@ -27,7 +26,6 @@
             <%= yield %>
           </div>
           <!-- 下のコンテンツ -->
-
         </div>
 
       </div>

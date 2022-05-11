@@ -1,23 +1,29 @@
-<div class="col-sm-12 col-lg-4 mb-3">
-    <div class="card">
-      <div class="card-body">
-        <h4 class="card-name">
-          <%= task.name %>
-        </h4>
+<div class="col-sm-12 col-lg-12 mb-3">
+  <div class="card">
+    <div class="card-body">
 
-        <ul class="list-inline">
-          <li class="list-inline-item">
-              <%= task.body %>
-          </li>
-          <li class="list-inline-item">
-              <div id="<%= task.article.qiita_id %>"></div>
-          </li>
-          <li class="list-inline-item">
-            <%= link_to task_path(task), method: :get do %>
-              <%= icon 'fas', 'info-circle' %>
-            <% end %>
-          </li>
-        </ul>
+      <div class="row">
+        <div class="col-md-8">
+          <%= task.name %>
+        </div>
+        <div class="col-md-1 offset-md-3">
+          <%= link_to task_path(task), method: :get do %>
+            <%= icon 'fas', 'info-circle' %>
+          <% end %>
+        </div>
       </div>
+
+      <div class="row">
+          <div class="text-secondary" >
+            <%= task.body %>
+          </div>
+      </div>
+
+      <div class="row">
+        <div id="<%= task.article.qiita_id %>">
+        </div>
+      </div>
+
     </div>
+  </div>
 </div>

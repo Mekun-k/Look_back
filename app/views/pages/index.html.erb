@@ -1,5 +1,17 @@
-<h1><%= t('.title') %></h1>
+<div class="container">
+  <div class="row text-center">
+    <h1 class="pages-title"><%= t('.title') %></h1>
+  </div>
 
-<%= link_to t('tasks.index.title'), tasks_path, class: 'btn btn-primary' %>
-<%= link_to t('tasks.today.title'), today_tasks_path, class: 'btn btn-primary' %>
-<%= link_to t('tasks.new.title'), new_task_path, class: 'btn btn-primary' %>
+  <div class="d-grid gap-2 col-6 mx-auto">
+    <div class="row p-3">
+      <%= link_to t('tasks.index.title'), tasks_path, class: 'btn btn-primary btn-lg' %>
+    </div>
+    <div class="row p-3">
+      <%= link_to t('tasks.today.title'), today_tasks_path, class: 'btn btn-primary btn-lg' %>
+    </div>
+    <div class="row p-3">
+      <%= link_to t('tasks.new.title'), new_task_path, class: 'btn btn-primary btn-lg' %>
+    </div>
+  </div>
+</div>

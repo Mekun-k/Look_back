@@ -15,6 +15,7 @@ ActiveStorage.start()
 require("jquery")
 require('qiita.js')
 require('sidebar.js')
+require('hamburger.js')
 
 var jQuery = require('jquery')
 global.$ = global.jQuery = jQuery;

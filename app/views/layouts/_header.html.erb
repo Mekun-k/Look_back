@@ -1,7 +1,64 @@
-<header class="shadow">
-  <nav class="navbar navbar-light bg-light">
-    <div class="container-fluid">
-      <i class="bi bi-list h3" id="sidbar-toggler"></i>
-    </div>
-  </nav>
-</header>
+<nav class="navbar justify-content-between bg-light border-bottom shadow-sm navbar-expand">
+    <ul class="navbar-nav">
+        <h4 class="mr-auto">
+          <%= link_to 'Look Back', root_path, class:'text-blue text-decoration-none' %>
+        </h4>
+        <div class="dropdown ml-auto">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="bi bi-person-circle"></i>
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                <% if user_signed_in? %>
+                    <li class="nav-item active">
+                        <%= link_to (t 'defaults.account'), edit_user_path(current_user), class: 'nav-link flex-fill dropdown-item' %>
+                    </li>
+                    <li class="nav-item active">
+                        <%= link_to (t 'defaults.logout'), destroy_user_session_path, class: 'nav-link flex-fill dropdown-item', method: :delete %>
+                    </li>
+                <% else %>
+                    <li class="nav-item active">
+                        <%= link_to (t 'defaults.login'), new_user_session_path, class: 'nav-link flex-fill' %>
+                    </li>
+                <% end %>
+            </ul>
+        </div>
+    </ul>
+
+    <% if user_signed_in? %>
+        <div class="d-none d-sm-block d-md-none">
+            <div class="hamburger">
+                <div class="h3">
+                    <i class="bi bi-list"></i>
+                </div>
+            </div>
+
+            <nav class="globalMenuSp">
+                <ul>
+                    <% if user_signed_in? %>
+                        <li class="nav-item active">
+                            <%= link_to (t 'defaults.account'), edit_user_path(current_user), class: 'nav-link flex-fill dropdown-item' %>
+                        </li>
+                        <li class="nav-item active">
+                            <%= link_to (t 'defaults.logout'), destroy_user_session_path, class: 'nav-link flex-fill dropdown-item', method: :delete %>
+                        </li>
+                        <li class="nav-item active">
+                            <%= link_to (t 'layouts._header.new'), new_task_path, class: 'nav-link flex-fill dropdown-item' %>
+                        </li>
+                        <li class="nav-item active">
+                            <%= link_to (t 'layouts._header.index'), tasks_path, class: 'nav-link flex-fill dropdown-item' %>
+                        </li>
+                        <li class="nav-item active">
+                            <%= link_to (t 'layouts._header.today'), today_tasks_path, class: 'nav-link flex-fill dropdown-item' %>
+                        </li>
+                    <% else %>
+                        <li class="nav-item active">
+                            <%= link_to (t 'defaults.login'), new_user_session_path, class: 'nav-link flex-fill' %>
+                        </li>
+                    <% end %>
+                </ul>
+            </nav>
+        </div>
+    <% end %>
+
+
+</nav>
