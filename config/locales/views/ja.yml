@@ -19,7 +19,9 @@ ja:
       delete_confirm: "タスクを削除してもよろしいでしょうか？"
   layouts:
     _header:
-      top: 'トップページ'
+      index: 'タスク一覧ページ'
+      new: 'タスク作成ページ'
+      today: '今日ページ'
   users:
     new:
       title: 'ユーザー登録'
@@ -40,10 +42,10 @@ ja:
       title: 'タスク一覧'
       no_result: 'タスクがありません'
     today:
-      title: '今日'
+      title: '今日ページ'
       no_result: '今日行うタスクがありません'
     new:
-      title: '作成'
+      title: 'タスク作成'
     edit:
       title: '編集'
     show:

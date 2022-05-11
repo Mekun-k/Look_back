@@ -1,17 +1,13 @@
 <%= javascript_pack_tag "qiita_index.js" %>
 <input type="hidden" id="qiita_user_id_index" value="<%= @qiita_user_id %>" >
 
-<div class="container pt-3">
+<div class="container">
    <div class="row">
-     <div class="col-12">
-       <div class="row">
-        <input name="qiita_json" type="hidden" value=<%= @qiita_json %> class='qiita_json'/>
-         <% if @tasks.present? %>
-           <%= render @tasks %>
-         <% else %>
-           <p><%= t('.no_result') %></p>
-         <% end %>
-       </div>
-     </div>
+    <input name="qiita_json" type="hidden" value=<%= @qiita_json %> class='qiita_json'/>
+    <% if @tasks.present? %>
+      <%= render @tasks %>
+    <% else %>
+      <p><%= t('.no_result') %></p>
+    <% end %>
    </div>
  </div>
