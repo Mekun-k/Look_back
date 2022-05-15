@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   resources :tasks do
     collection do
       get 'today'
+      post ':id/toggle', to: 'tasks#toggle'
     end
   end
 
