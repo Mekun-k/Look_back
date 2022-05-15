@@ -78,12 +78,24 @@ class TasksController < ApplicationController
   def today
     @task = Task.where(user_id: current_user.id).includes(:user).order("created_at DESC")
     @tasks = @task.doing_today
-
-
     @articles = Article.all.includes(:task).order(created_at: :desc)
 
     @qiita = @articles.map(&:qiita_id)
     @qiita_json = @qiita.to_json.html_safe
+  end
+
+  def toggle
+    id = params[:id] # // jsから受け取ったid
+    @task = Task.find(id)
+    @completed_flag = @task.completed_flag
+
+    if @completed_flag
+      @completed_flag = false
+      @task.update(completed_flag: @completed_flag)
+    else
+      @completed_flag = true
+      @task.update(completed_flag: @completed_flag)
+    end
   end
 
   private
