@@ -44,6 +44,9 @@ ja:
     today:
       title: '今日ページ'
       no_result: '今日行うタスクがありません'
+    done:
+      title: '完了ページ'
+      no_result: '今日行うタスクがありません'
     new:
       title: 'タスク作成'
     edit:
