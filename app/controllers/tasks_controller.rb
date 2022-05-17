@@ -84,6 +84,14 @@ class TasksController < ApplicationController
     @qiita_json = @qiita.to_json.html_safe
   end
 
+  def done
+    @task = Task.where(user_id: current_user.id).includes(:user).order("created_at DESC")
+    @tasks = @task.done
+    @articles = Article.all.includes(:task).order(created_at: :desc)
+    @qiita = @articles.map(&:qiita_id)
+    @qiita_json = @qiita.to_json.html_safe
+  end
+
   def toggle
     id = params[:id] # // jsから受け取ったid
     @task = Task.find(id)
