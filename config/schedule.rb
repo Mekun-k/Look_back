@@ -12,11 +12,11 @@ every 1.minutes do
   end
 end
 
-every 1.days, at: '23:55 pm'
+every 1.days, at: '23:55 pm' do
   rake 'change_count:update'
   rake 'change_date:update'
 end
 
-every 1.days, at: '0:00 am'
+every 1.days, at: '0:00 am' do
   rake 'change_state:update'
 end
